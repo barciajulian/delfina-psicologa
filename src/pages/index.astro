@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
+import { MOTIVOS_ROTATIVOS } from '../config';
 import espacio from '../assets/img/consultorio-espacio.jpg';
 import rincon from '../assets/img/consultorio-rincon.jpg';
 import retrato from '../assets/img/delfina-retrato.jpg';
@@ -17,6 +18,14 @@ import retrato from '../assets/img/delfina-retrato.jpg';
         <span class="ln">Y rara vez está de un solo <span class="uline">lado<svg viewBox="0 0 120 12" preserveAspectRatio="none" aria-hidden="true"><path d="M2 8 C 20 3, 42 3, 60 6 S 100 9, 118 4"></path></svg></span>.</span>
       </h1>
       <p class="sub">Acompaño a adolescentes y a sus familias a volver a encontrar el modo de hablarse. La primera entrevista es con los adultos.</p>
+      <p class="rotator" data-rotator>
+        <span class="rotator__lead">Suelen consultarme por</span>
+        <span class="rotator__stage">
+          {MOTIVOS_ROTATIVOS.map((m, i) => (
+            <span class:list={['rotator__word', { 'is-on': i === 0 }]}>{m}</span>
+          ))}
+        </span>
+      </p>
       <div class="cta-row">
         <a href="/consulta" class="btn">Pedir una primera entrevista <span class="tick" aria-hidden="true">&rarr;</span></a>
         <a href="/como-trabajo" class="link-underline">Cómo es el proceso <span class="tick" aria-hidden="true">&rarr;</span></a>
@@ -25,7 +34,7 @@ import retrato from '../assets/img/delfina-retrato.jpg';
   </section>
 
   <section class="folio" data-sec="retrato">
-    <figure class="folio__inner">
+    <figure class="folio__inner reveal">
       <figcaption>El consultorio, en Belgrano. También hay sesiones online, en todo el país.</figcaption>
       <div class="shot">
         <Image src={espacio} alt="Consultorio de Delfina Espósito visto desde la puerta: un escritorio junto a una ventana con plantas y dos sillas." />
@@ -35,7 +44,7 @@ import retrato from '../assets/img/delfina-retrato.jpg';
 
   <section class="section spread rule-top motivos" data-sec="motivos">
     <div class="mark"><span class="mark__num">01</span><span class="mark__label">Motivos</span></div>
-    <div class="col">
+    <div class="col reveal">
       <span class="eyebrow">Motivos de consulta frecuentes</span>
       <p class="section-lead dropcap">No hace falta que sepas ponerle nombre. Estas son algunas de las situaciones que solemos trabajar.</p>
       <ul>
@@ -51,7 +60,7 @@ import retrato from '../assets/img/delfina-retrato.jpg';
 
   <section class="section spread chapter-lila" data-sec="empezar">
     <div class="mark"><span class="mark__num">02</span><span class="mark__label">Cómo empieza</span></div>
-    <div class="col">
+    <div class="col reveal">
       <span class="eyebrow">Cómo es empezar</span>
       <h2>Un recorrido claro, sin sorpresas.</h2>
       <div class="steps">
@@ -74,7 +83,7 @@ import retrato from '../assets/img/delfina-retrato.jpg';
 
   <section class="section spread aside-aqua" data-sec="teen">
     <div class="glyph" aria-hidden="true">*</div>
-    <div class="col">
+    <div class="col reveal">
       <span class="eyebrow">Si estás en secundaria</span>
       <h2>No tenés que venir convencido.</h2>
       <p>Si estás leyendo esto porque alguien te pasó el link, está bien. Pero si querés un lugar para pensar tus cosas —sin que nadie te rete y sin que se lo cuenten todo a tus viejos—, este puede serlo. Podés venir una vez a conocer el consultorio <em>antes</em> de decidir si seguís.</p>
@@ -83,7 +92,7 @@ import retrato from '../assets/img/delfina-retrato.jpg';
 
   <section class="section spread rule-top" data-sec="sobre">
     <div class="mark"><span class="mark__num">03</span><span class="mark__label">Quién soy</span></div>
-    <div class="col">
+    <div class="col reveal">
       <span class="eyebrow">Quién te va a atender</span>
       <h2>Delfina Espósito</h2>
       <p>Soy psicóloga y hace más de diez años trabajo con adolescentes y sus familias. Me interesa el momento en que algo se traba y todos dejan de entenderse: casi siempre hay una salida, y rara vez está de un solo lado.</p>
@@ -99,7 +108,7 @@ import retrato from '../assets/img/delfina-retrato.jpg';
   </section>
 
   <section class="folio" data-sec="rincon">
-    <figure class="folio__inner">
+    <figure class="folio__inner reveal">
       <figcaption>Un rincón para hablar con calma.</figcaption>
       <div class="shot">
         <Image src={rincon} alt="Un rincón del consultorio con dos sillones enfrentados y una cortina de lino con luz suave." />
@@ -109,11 +118,27 @@ import retrato from '../assets/img/delfina-retrato.jpg';
 
   <section class="section spread rule-top closing" data-sec="cierre">
     <div class="mark"><span class="mark__num">04</span><span class="mark__label">Consultá</span></div>
-    <div class="col">
+    <div class="col reveal">
       <h2>¿Damos el primer paso?</h2>
       <p>Escribime y coordinamos una primera entrevista. Respondo en el día.</p>
       <a href="/consulta" class="btn">Pedir una primera entrevista <span class="tick" aria-hidden="true">&rarr;</span></a>
       <p class="modalidad">Consultorio en Belgrano, CABA · Sesiones online en todo el país</p>
     </div>
   </section>
+
+  <script>
+    (function () {
+      const box = document.querySelector('[data-rotator]');
+      if (!box) return;
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      const words = Array.from(box.querySelectorAll('.rotator__word'));
+      if (words.length < 2) return;
+      let i = 0;
+      setInterval(() => {
+        words[i].classList.remove('is-on');
+        i = (i + 1) % words.length;
+        words[i].classList.add('is-on');
+      }, 2600);
+    })();
+  </script>
 </Base>

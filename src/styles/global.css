@@ -128,9 +128,11 @@ a { color: var(--blue-deep); text-decoration: none; }
 .nav__links a:hover::after,
 .nav__links a[aria-current="page"]::after { transform: scaleX(1); }
 .nav__links a[aria-current="page"] { color: var(--ink); }
-@media (max-width: 600px) {
-  .nav__bar { flex-direction: column; gap: 0.75rem; align-items: flex-start; }
+@media (max-width: 780px) {
+  .nav__bar { flex-direction: column; gap: 0.8rem; align-items: flex-start; }
+  .nav__right { flex-wrap: wrap; gap: 0.75rem 1rem; }
   .nav__links { flex-wrap: wrap; gap: 1rem 1.2rem; }
+  .nav__sep { display: none; }
 }
 
 /* ---------- buttons & links ---------- */
@@ -184,7 +186,7 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
 .uline svg path { fill: none; stroke: var(--blue); stroke-width: 3; stroke-linecap: round; }
 .hero .sub {
   font-family: var(--body); font-size: 1.18rem; line-height: 1.55;
-  color: var(--ink-soft); max-width: 32ch; margin: 1.8rem 0 2.3rem;
+  color: var(--ink-soft); max-width: 32ch; margin: 1.8rem 0 1.2rem;
 }
 .cta-row { display: flex; align-items: center; gap: 1.8rem; flex-wrap: wrap; }
 
@@ -350,19 +352,84 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
 @media (max-width: 760px) { .foot__grid { grid-template-columns: 1fr; gap: 1.8rem; } }
 
 /* ---------- hero load sequence (css only, time based) ---------- */
-.js .hero .eyebrow, .js .hero h1 .ln, .js .hero .sub, .js .hero .cta-row { opacity: 0; transform: translateY(14px); }
+.js .hero .eyebrow, .js .hero h1 .ln, .js .hero .sub, .js .hero .rotator, .js .hero .cta-row { opacity: 0; transform: translateY(14px); }
 .loaded .hero .eyebrow { animation: rise 0.7s 0.05s cubic-bezier(.2,.7,.2,1) forwards; }
 .loaded .hero h1 .ln:nth-child(1) { animation: rise 0.75s 0.15s cubic-bezier(.2,.7,.2,1) forwards; }
 .loaded .hero h1 .ln:nth-child(2) { animation: rise 0.75s 0.27s cubic-bezier(.2,.7,.2,1) forwards; }
 .loaded .hero .sub { animation: rise 0.7s 0.42s cubic-bezier(.2,.7,.2,1) forwards; }
-.loaded .hero .cta-row { animation: rise 0.7s 0.54s cubic-bezier(.2,.7,.2,1) forwards; }
+.loaded .hero .rotator { animation: rise 0.7s 0.5s cubic-bezier(.2,.7,.2,1) forwards; }
+.loaded .hero .cta-row { animation: rise 0.7s 0.6s cubic-bezier(.2,.7,.2,1) forwards; }
 @keyframes rise { to { opacity: 1; transform: none; } }
 .uline svg path { stroke-dasharray: 320; stroke-dashoffset: 320; }
 .loaded .uline svg path { transition: stroke-dashoffset 0.9s 0.95s cubic-bezier(.65,0,.35,1); stroke-dashoffset: 0; }
 
 @media (prefers-reduced-motion: reduce) {
   .js .shot img { clip-path: none !important; transition: none !important; }
-  .js .hero .eyebrow, .js .hero h1 .ln, .js .hero .sub, .js .hero .cta-row { opacity: 1 !important; transform: none !important; animation: none !important; }
+  .js .hero .eyebrow, .js .hero h1 .ln, .js .hero .sub, .js .hero .rotator, .js .hero .cta-row { opacity: 1 !important; transform: none !important; animation: none !important; }
   .uline svg path { stroke-dashoffset: 0 !important; transition: none !important; }
   .nav__links a::after, .link-underline::after, .btn::before { transition: none !important; }
+}
+
+/* ============================================================
+   Widgets: íconos de contacto, botones flotantes, rotador,
+   y animaciones al scrollear
+   ============================================================ */
+
+/* ---------- nav: íconos de contacto ---------- */
+.nav__right { display: flex; align-items: center; gap: 1.25rem; }
+.nav__sep { width: 1px; height: 1.1rem; background: var(--line); }
+.nav__social { display: flex; gap: 0.85rem; }
+.nav__social a { color: var(--ink-soft); display: flex; }
+.nav__social a:hover { color: var(--blue-deep); }
+
+/* ---------- botones flotantes ---------- */
+.floats {
+  position: fixed; right: 1.1rem; bottom: 1.1rem; z-index: 50;
+  display: flex; flex-direction: column; align-items: flex-end; gap: 0.6rem;
+}
+.floats__wa {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: var(--blue-deep); color: var(--paper);
+  padding: 0.7rem 0.95rem; border-radius: 999px;
+  box-shadow: 0 6px 20px rgba(35, 38, 47, 0.18);
+  font-family: var(--body); font-size: 0.9rem; font-weight: 500;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.floats__wa:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(35, 38, 47, 0.24); }
+.floats__wa svg { flex-shrink: 0; }
+.floats__top {
+  width: 2.5rem; height: 2.5rem; border-radius: 999px;
+  background: var(--paper); color: var(--ink-soft); border: 1px solid var(--line);
+  display: flex; align-items: center; justify-content: center; cursor: pointer;
+  box-shadow: 0 4px 14px rgba(35, 38, 47, 0.12);
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+.floats__top[hidden] { display: none; }
+.floats__top:hover { color: var(--ink); transform: translateY(-2px); }
+@media (max-width: 600px) {
+  .floats__wa-label { display: none; }
+  .floats__wa { padding: 0.8rem; }
+}
+
+/* ---------- rotador de motivos (hero) ---------- */
+.rotator {
+  font-family: var(--body); font-size: 0.98rem; color: var(--ink-soft);
+  margin: 0 0 2.2rem; display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.4rem;
+}
+.rotator__stage { position: relative; display: inline-block; min-width: 17rem; height: 1.5em; }
+.rotator__word {
+  position: absolute; left: 0; top: 0; white-space: nowrap;
+  color: var(--blue-deep); font-weight: 500;
+  opacity: 0; transform: translateY(0.45em);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.rotator__word.is-on { opacity: 1; transform: none; }
+@media (max-width: 520px) { .rotator__stage { min-width: 100%; } }
+@media (prefers-reduced-motion: reduce) { .rotator__word { transition: none; } }
+
+/* ---------- reveal al scrollear ---------- */
+.js .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.7s ease, transform 0.8s cubic-bezier(.2, .7, .2, 1); }
+.js .reveal.is-visible { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
 }
