@@ -1,0 +1,92 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base
+  title="Consultá · Delfina Espósito"
+  description="Escribí por el formulario o por WhatsApp y coordinamos una primera entrevista. Consultorio en Belgrano, CABA, y sesiones online en todo el país."
+>
+  <section class="phead spread">
+    <div class="col">
+      <span class="eyebrow">Consultá</span>
+      <h1>Escribime y coordinamos la primera entrevista.</h1>
+      <p>Respondo los mensajes en el día. La primera entrevista es con los adultos; ahí vemos juntos cómo seguir.</p>
+    </div>
+  </section>
+
+  <section class="section spread rule-top" data-sec="contacto">
+    <div class="mark"><span class="mark__num">01</span><span class="mark__label">Contacto</span></div>
+    <div class="col">
+      <h2>Dos formas de escribir</h2>
+      <div class="cols2">
+        <form method="post" action="#" name="consulta">
+          <div class="field"><label for="f-nombre">Nombre</label><input id="f-nombre" name="nombre" type="text" autocomplete="name" required /></div>
+          <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required /></div>
+          <div class="field"><label for="f-tel">Teléfono</label><input id="f-tel" name="telefono" type="tel" autocomplete="tel" /></div>
+          <div class="field">
+            <label for="f-para">¿Para quién es la consulta?</label>
+            <select id="f-para" name="para">
+              <option>Para mi hijo o hija adolescente</option>
+              <option>Para mí, soy adolescente</option>
+              <option>Otra situación</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-msg">Contame brevemente qué los trae</label>
+            <textarea id="f-msg" name="mensaje"></textarea>
+            <span class="help">Con un par de líneas alcanza. Evitá incluir información médica sensible.</span>
+          </div>
+          <button type="submit" class="btn">Enviar consulta</button>
+        </form>
+        <div class="aside-wa">
+          <h3>Por WhatsApp</h3>
+          <p>Si preferís, escribime directo. Es la vía más rápida para coordinar día y horario.</p>
+          <a href="https://wa.me/5491100000000?text=Hola%20Delfina%2C%20quer%C3%ADa%20consultar%20por%20una%20primera%20entrevista." class="btn btn--ghost" rel="noopener">Escribir por WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section spread" data-sec="consultorio">
+    <div class="mark"><span class="mark__num">02</span><span class="mark__label">El consultorio</span></div>
+    <div class="col">
+      <h2>El consultorio</h2>
+      <p><strong>Av. Cabildo 2400, 4.º piso</strong> · Belgrano, Ciudad de Buenos Aires. Timbre 4&nbsp;B.</p>
+      <div class="map" role="img" aria-label="Mapa de la zona del consultorio en Belgrano, sobre Avenida Cabildo cerca de la calle Juramento.">
+        <svg viewBox="0 0 640 300" xmlns="http://www.w3.org/2000/svg">
+          <rect width="640" height="300" fill="#EFEDE6"></rect>
+          <g stroke="#DAD3C4" stroke-width="1.5" fill="none">
+            <path d="M0 60 H640 M0 150 H640 M0 240 H640"></path>
+            <path d="M120 0 V300 M300 0 V300 M470 0 V300"></path>
+          </g>
+          <path d="M-20 210 L660 90" stroke="#C9C0AD" stroke-width="14" fill="none"></path>
+          <path d="M-20 210 L660 90" stroke="#EFEDE6" stroke-width="2" stroke-dasharray="8 10" fill="none"></path>
+          <text x="500" y="120" font-family="'Lexend Deca',sans-serif" font-size="12" fill="#8a8474" transform="rotate(-11 500 120)">Av. Cabildo</text>
+          <text x="308" y="26" font-family="'Lexend Deca',sans-serif" font-size="12" fill="#8a8474">Juramento</text>
+          <circle cx="322" cy="168" r="9" fill="#3C4F94"></circle>
+          <circle cx="322" cy="168" r="18" fill="none" stroke="#3C4F94" stroke-width="1.5" opacity="0.5"></circle>
+          <text x="322" y="205" font-family="'Lexend Deca',sans-serif" font-size="12" fill="#33437E" text-anchor="middle" font-weight="500">Consultorio</text>
+        </svg>
+      </div>
+      <ul class="facts">
+        <li><span><strong>Cómo llegar:</strong> Subte D, estación Juramento. Colectivos 15, 29, 60, 152. Cochera a media cuadra.</span></li>
+        <li><span><strong>Horarios de atención:</strong> lunes a viernes, de 9 a 19&nbsp;h.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section spread" data-sec="online">
+    <div class="mark"><span class="mark__num">03</span><span class="mark__label">Online</span></div>
+    <div class="col">
+      <h2>Sesiones online</h2>
+      <p>Si te queda lejos o preferís videollamada, atiendo online en todo el país. La dinámica es la misma: primera entrevista con los adultos y después sesiones individuales.</p>
+      <div class="urg">
+        <h2>Este espacio no es un servicio de urgencias</h2>
+        <p>Si vos o alguien está en riesgo ahora, comunicate con una línea de ayuda o acercate a una guardia:</p>
+        <ul>
+          <li><strong>Línea 135</strong> — CABA y GBA, gratuita, las 24 horas.</li>
+          <li><strong>0800-345-1435</strong> — Salud mental responde, todo el país.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</Base>

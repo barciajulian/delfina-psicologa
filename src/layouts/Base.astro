@@ -1,0 +1,59 @@
+---
+import '@fontsource-variable/fraunces/standard.css';
+import '@fontsource-variable/fraunces/standard-italic.css';
+import '@fontsource/lexend-deca/400.css';
+import '@fontsource/lexend-deca/500.css';
+import '@fontsource/lexend-deca/600.css';
+import '../styles/global.css';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description: string;
+}
+const { title, description } = Astro.props;
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#F7F4EE" />
+    <script is:inline>
+      document.documentElement.classList.add('js');
+    </script>
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <Nav />
+    <main id="contenido">
+      <slot />
+    </main>
+    <Footer />
+    <script>
+      (function () {
+        document.body.classList.add('loaded');
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        if (!('IntersectionObserver' in window)) return;
+        const spy = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((e) => {
+              const mark = (e.target as HTMLElement).querySelector('.mark');
+              if (mark) mark.classList.toggle('is-active', e.isIntersecting);
+            });
+          },
+          { rootMargin: '-45% 0px -45% 0px' }
+        );
+        document.querySelectorAll('section[data-sec]').forEach((s) => spy.observe(s));
+      })();
+    </script>
+  </body>
+</html>

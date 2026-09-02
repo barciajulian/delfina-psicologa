@@ -1,0 +1,19 @@
+---
+const path = Astro.url.pathname;
+const links = [
+  { href: '/sobre-mi', label: 'Sobre mí' },
+  { href: '/como-trabajo', label: 'Cómo trabajo' },
+  { href: '/consulta', label: 'Consultá' },
+];
+const current = (href: string) => path === href || path === href + '/';
+---
+<header class="nav">
+  <div class="nav__bar">
+    <a class="nav__wordmark" href="/">Delfina Espósito</a>
+    <nav class="nav__links" aria-label="Navegación principal">
+      {links.map((l) => (
+        <a href={l.href} aria-current={current(l.href) ? 'page' : undefined}>{l.label}</a>
+      ))}
+    </nav>
+  </div>
+</header>

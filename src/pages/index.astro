@@ -1,0 +1,119 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import espacio from '../assets/img/consultorio-espacio.jpg';
+import rincon from '../assets/img/consultorio-rincon.jpg';
+import retrato from '../assets/img/delfina-retrato.jpg';
+---
+<Base
+  title="Delfina Espósito · Psicología para adolescentes y familias"
+  description="Psicóloga especializada en adolescentes y familias. Consultorio en Belgrano, CABA, y sesiones online en todo el país. Pedí una primera entrevista."
+>
+  <section class="hero spread" data-sec="hero">
+    <div class="col">
+      <span class="eyebrow">Psicología · adolescentes y familias</span>
+      <h1>
+        <span class="ln">Casi siempre hay una salida.</span>
+        <span class="ln">Y rara vez está de un solo <span class="uline">lado<svg viewBox="0 0 120 12" preserveAspectRatio="none" aria-hidden="true"><path d="M2 8 C 20 3, 42 3, 60 6 S 100 9, 118 4"></path></svg></span>.</span>
+      </h1>
+      <p class="sub">Acompaño a adolescentes y a sus familias a volver a encontrar el modo de hablarse. La primera entrevista es con los adultos.</p>
+      <div class="cta-row">
+        <a href="/consulta" class="btn">Pedir una primera entrevista <span class="tick" aria-hidden="true">&rarr;</span></a>
+        <a href="/como-trabajo" class="link-underline">Cómo es el proceso <span class="tick" aria-hidden="true">&rarr;</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="folio" data-sec="retrato">
+    <figure class="folio__inner">
+      <figcaption>El consultorio, en Belgrano. También hay sesiones online, en todo el país.</figcaption>
+      <div class="shot">
+        <Image src={espacio} alt="Consultorio de Delfina Espósito visto desde la puerta: un escritorio junto a una ventana con plantas y dos sillas." />
+      </div>
+    </figure>
+  </section>
+
+  <section class="section spread rule-top motivos" data-sec="motivos">
+    <div class="mark"><span class="mark__num">01</span><span class="mark__label">Motivos</span></div>
+    <div class="col">
+      <span class="eyebrow">Motivos de consulta frecuentes</span>
+      <p class="section-lead dropcap">No hace falta que sepas ponerle nombre. Estas son algunas de las situaciones que solemos trabajar.</p>
+      <ul>
+        <li><span class="i">i</span><span>La ansiedad antes de cada examen o entrega</span></li>
+        <li><span class="i">ii</span><span>Discusiones que se repiten siempre igual</span></li>
+        <li><span class="i">iii</span><span>El encierro, las pantallas, el aislamiento</span></li>
+        <li><span class="i">iv</span><span>Cambios de ánimo que preocupan en casa</span></li>
+        <li><span class="i">v</span><span>Situaciones de acoso o exclusión en la escuela</span></li>
+        <li><span class="i">vi</span><span>Un duelo o una separación que costó atravesar</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section spread chapter-lila" data-sec="empezar">
+    <div class="mark"><span class="mark__num">02</span><span class="mark__label">Cómo empieza</span></div>
+    <div class="col">
+      <span class="eyebrow">Cómo es empezar</span>
+      <h2>Un recorrido claro, sin sorpresas.</h2>
+      <div class="steps">
+        <div class="step">
+          <span class="step__k">Primero</span>
+          <div><h3>Primera entrevista</h3><p>Nos encontramos con los adultos, sin el o la adolescente, para escuchar la preocupación y acordar cómo seguir.</p></div>
+        </div>
+        <div class="step">
+          <span class="step__k">Después</span>
+          <div><h3>Sesiones individuales</h3><p>Empiezan los encuentros semanales con el o la adolescente, en un espacio propio y reservado.</p></div>
+        </div>
+        <div class="step">
+          <span class="step__k">Cada tanto</span>
+          <div><h3>Encuentros en familia</h3><p>Cada algunas semanas nos volvemos a ver todos juntos para mirar los cambios y reacomodar lo que haga falta.</p></div>
+        </div>
+      </div>
+      <p style="margin-top:2rem"><a href="/como-trabajo" class="link-underline" style="color:var(--lila-ink)">Ver cómo trabajo en detalle <span class="tick" aria-hidden="true">&rarr;</span></a></p>
+    </div>
+  </section>
+
+  <section class="section spread aside-aqua" data-sec="teen">
+    <div class="glyph" aria-hidden="true">*</div>
+    <div class="col">
+      <span class="eyebrow">Si estás en secundaria</span>
+      <h2>No tenés que venir convencido.</h2>
+      <p>Si estás leyendo esto porque alguien te pasó el link, está bien. Pero si querés un lugar para pensar tus cosas —sin que nadie te rete y sin que se lo cuenten todo a tus viejos—, este puede serlo. Podés venir una vez a conocer el consultorio <em>antes</em> de decidir si seguís.</p>
+    </div>
+  </section>
+
+  <section class="section spread rule-top" data-sec="sobre">
+    <div class="mark"><span class="mark__num">03</span><span class="mark__label">Quién soy</span></div>
+    <div class="col">
+      <span class="eyebrow">Quién te va a atender</span>
+      <h2>Delfina Espósito</h2>
+      <p>Soy psicóloga y hace más de diez años trabajo con adolescentes y sus familias. Me interesa el momento en que algo se traba y todos dejan de entenderse: casi siempre hay una salida, y rara vez está de un solo lado.</p>
+      <p class="cred">Lic. en Psicología (UBA) · M.N. 00000 · Formación en clínica con adolescencia y familia</p>
+      <p><a href="/sobre-mi" class="link-underline">Sobre mí <span class="tick" aria-hidden="true">&rarr;</span></a></p>
+      <figure class="portrait-fig">
+        <div class="shot">
+          <Image src={retrato} alt="Retrato de Delfina Espósito, sentada en su consultorio con luz natural." />
+        </div>
+        <figcaption>Delfina, en su consultorio.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="folio" data-sec="rincon">
+    <figure class="folio__inner">
+      <figcaption>Un rincón para hablar con calma.</figcaption>
+      <div class="shot">
+        <Image src={rincon} alt="Un rincón del consultorio con dos sillones enfrentados y una cortina de lino con luz suave." />
+      </div>
+    </figure>
+  </section>
+
+  <section class="section spread rule-top closing" data-sec="cierre">
+    <div class="mark"><span class="mark__num">04</span><span class="mark__label">Consultá</span></div>
+    <div class="col">
+      <h2>¿Damos el primer paso?</h2>
+      <p>Escribime y coordinamos una primera entrevista. Respondo en el día.</p>
+      <a href="/consulta" class="btn">Pedir una primera entrevista <span class="tick" aria-hidden="true">&rarr;</span></a>
+      <p class="modalidad">Consultorio en Belgrano, CABA · Sesiones online en todo el país</p>
+    </div>
+  </section>
+</Base>
