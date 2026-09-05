@@ -7,7 +7,7 @@ export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURICo
 )}`;
 
 export const INSTAGRAM_URL = 'https://instagram.com/';
-export const EMAIL = 'hola@delfinaesposito.com';
+export const EMAIL = 'hola@delfinamartinez.com';
 
 // Frases rotativas del hero (motivos de consulta frecuentes)
 export const MOTIVOS_ROTATIVOS = [

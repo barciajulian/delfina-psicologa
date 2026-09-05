@@ -1,10 +1,11 @@
 ---
+import { EMAIL } from '../config';
 ---
 <footer class="foot">
   <div class="spread">
     <div class="foot__grid">
       <div>
-        <span class="foot__wordmark">Delfina Espósito</span>
+        <span class="foot__wordmark">Delfina Martínez</span>
         <span class="foot__tag">Psicología · adolescentes y familias</span>
       </div>
       <div>
@@ -19,7 +20,7 @@
         <h4>Contacto</h4>
         <ul>
           <li><a href="/consulta">WhatsApp</a></li>
-          <li><a href="mailto:hola@delfinaesposito.com">hola@delfinaesposito.com</a></li>
+          <li><a href={`mailto:${EMAIL}`}>{EMAIL}</a></li>
           <li>Belgrano, CABA</li>
         </ul>
       </div>

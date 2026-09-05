@@ -1,13 +1,13 @@
 ---
 import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
-import { MOTIVOS_ROTATIVOS } from '../config';
+import { MOTIVOS_ROTATIVOS, WHATSAPP_URL } from '../config';
 import espacio from '../assets/img/consultorio-espacio.jpg';
 import rincon from '../assets/img/consultorio-rincon.jpg';
 import retrato from '../assets/img/delfina-retrato.jpg';
 ---
 <Base
-  title="Delfina Espósito · Psicología para adolescentes y familias"
+  title="Delfina Martínez · Psicología para adolescentes y familias"
   description="Psicóloga especializada en adolescentes y familias. Consultorio en Belgrano, CABA, y sesiones online en todo el país. Pedí una primera entrevista."
 >
   <section class="hero spread" data-sec="hero">
@@ -28,8 +28,9 @@ import retrato from '../assets/img/delfina-retrato.jpg';
       </p>
       <div class="cta-row">
         <a href="/consulta" class="btn">Pedir una primera entrevista <span class="tick" aria-hidden="true">&rarr;</span></a>
-        <a href="/como-trabajo" class="link-underline">Cómo es el proceso <span class="tick" aria-hidden="true">&rarr;</span></a>
+        <a href={WHATSAPP_URL} target="_blank" rel="noopener" class="btn btn--ghost">Escribir por WhatsApp</a>
       </div>
+      <p class="hero-more"><a href="/como-trabajo" class="link-underline">Cómo es el proceso <span class="tick" aria-hidden="true">&rarr;</span></a></p>
     </div>
   </section>
 
@@ -37,13 +38,30 @@ import retrato from '../assets/img/delfina-retrato.jpg';
     <figure class="folio__inner reveal">
       <figcaption>El consultorio, en Belgrano. También hay sesiones online, en todo el país.</figcaption>
       <div class="shot">
-        <Image src={espacio} alt="Consultorio de Delfina Espósito visto desde la puerta: un escritorio junto a una ventana con plantas y dos sillas." />
+        <Image src={espacio} alt="Consultorio de Delfina Martínez visto desde la puerta: un escritorio junto a una ventana con plantas y dos sillas." />
       </div>
     </figure>
   </section>
 
+  <section class="section spread rule-top" data-sec="sobre">
+    <div class="mark"><span class="mark__num">01</span><span class="mark__label">Quién soy</span></div>
+    <div class="col reveal">
+      <span class="eyebrow">Quién te va a atender</span>
+      <h2>Delfina Martínez</h2>
+      <p>Soy psicóloga y hace más de diez años trabajo con adolescentes y sus familias. Me interesa el momento en que algo se traba y todos dejan de entenderse: casi siempre hay una salida, y rara vez está de un solo lado.</p>
+      <p class="cred">Lic. en Psicología (UBA) · M.N. 00000 · Formación en clínica con adolescencia y familia</p>
+      <p><a href="/sobre-mi" class="link-underline">Sobre mí <span class="tick" aria-hidden="true">&rarr;</span></a></p>
+      <figure class="portrait-fig">
+        <div class="shot">
+          <Image src={retrato} alt="Retrato de Delfina Martínez, sentada en su consultorio con luz natural." />
+        </div>
+        <figcaption>Delfina, en su consultorio.</figcaption>
+      </figure>
+    </div>
+  </section>
+
   <section class="section spread rule-top motivos" data-sec="motivos">
-    <div class="mark"><span class="mark__num">01</span><span class="mark__label">Motivos</span></div>
+    <div class="mark"><span class="mark__num">02</span><span class="mark__label">Motivos</span></div>
     <div class="col reveal">
       <span class="eyebrow">Motivos de consulta frecuentes</span>
       <p class="section-lead dropcap">No hace falta que sepas ponerle nombre. Estas son algunas de las situaciones que solemos trabajar.</p>
@@ -52,14 +70,14 @@ import retrato from '../assets/img/delfina-retrato.jpg';
         <li><span class="i">ii</span><span>Discusiones que se repiten siempre igual</span></li>
         <li><span class="i">iii</span><span>El encierro, las pantallas, el aislamiento</span></li>
         <li><span class="i">iv</span><span>Cambios de ánimo que preocupan en casa</span></li>
-        <li><span class="i">v</span><span>Situaciones de acoso o exclusión en la escuela</span></li>
-        <li><span class="i">vi</span><span>Un duelo o una separación que costó atravesar</span></li>
+        <li><span class="i">v</span><span>Acoso o exclusión en la escuela</span></li>
+        <li><span class="i">vi</span><span>Un duelo o una separación difícil</span></li>
       </ul>
     </div>
   </section>
 
   <section class="section spread chapter-lila" data-sec="empezar">
-    <div class="mark"><span class="mark__num">02</span><span class="mark__label">Cómo empieza</span></div>
+    <div class="mark"><span class="mark__num">03</span><span class="mark__label">Cómo empieza</span></div>
     <div class="col reveal">
       <span class="eyebrow">Cómo es empezar</span>
       <h2>Un recorrido claro, sin sorpresas.</h2>
@@ -87,23 +105,6 @@ import retrato from '../assets/img/delfina-retrato.jpg';
       <span class="eyebrow">Si estás en secundaria</span>
       <h2>No tenés que venir convencido.</h2>
       <p>Si estás leyendo esto porque alguien te pasó el link, está bien. Pero si querés un lugar para pensar tus cosas —sin que nadie te rete y sin que se lo cuenten todo a tus viejos—, este puede serlo. Podés venir una vez a conocer el consultorio <em>antes</em> de decidir si seguís.</p>
-    </div>
-  </section>
-
-  <section class="section spread rule-top" data-sec="sobre">
-    <div class="mark"><span class="mark__num">03</span><span class="mark__label">Quién soy</span></div>
-    <div class="col reveal">
-      <span class="eyebrow">Quién te va a atender</span>
-      <h2>Delfina Espósito</h2>
-      <p>Soy psicóloga y hace más de diez años trabajo con adolescentes y sus familias. Me interesa el momento en que algo se traba y todos dejan de entenderse: casi siempre hay una salida, y rara vez está de un solo lado.</p>
-      <p class="cred">Lic. en Psicología (UBA) · M.N. 00000 · Formación en clínica con adolescencia y familia</p>
-      <p><a href="/sobre-mi" class="link-underline">Sobre mí <span class="tick" aria-hidden="true">&rarr;</span></a></p>
-      <figure class="portrait-fig">
-        <div class="shot">
-          <Image src={retrato} alt="Retrato de Delfina Espósito, sentada en su consultorio con luz natural." />
-        </div>
-        <figcaption>Delfina, en su consultorio.</figcaption>
-      </figure>
     </div>
   </section>
 
